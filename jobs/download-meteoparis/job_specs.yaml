@@ -1,0 +1,16 @@
+version: '0.1'
+description: Create table meteoparis
+class: CommandLineTool
+image: ""  # not implemented
+script: download-meteoparis.sh
+
+job_parameters:
+  - ds
+
+task_specs:
+  source_path: "https://public.opendatasoft.com/explore/dataset/arome-0025-sp1_sp2_paris/download/?format=json&timezone=Europe/Berlin"
+  sink_path: "/data/raw/meteoparis/ds={{ ds }}"
+  ds: "{{ ds }}"
+
+# dependencies:
+#   - other-job-name

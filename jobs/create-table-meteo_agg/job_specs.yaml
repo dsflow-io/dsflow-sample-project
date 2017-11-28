@@ -1,0 +1,15 @@
+version: '0.1'
+description: Create table meteo_agg
+class: JupyterNotebook
+image: dsflow/pyspark:2.2  # not implemented
+script: create-table-meteo_agg.ipynb
+
+job_parameters:
+  - ds
+
+task_specs:
+  sink_path: "/data/tables/meteo_agg/ds={{ ds }}"
+  ds: "{{ ds }}"
+
+# dependencies:
+#   - other-job-name
