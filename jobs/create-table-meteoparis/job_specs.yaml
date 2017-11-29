@@ -11,6 +11,3 @@ task_specs:
   source_path: "/data/raw/meteoparis/ds={{ ds }}"
   sink_path: "/data/tables/meteoparis/ds={{ ds }}"
   ds: "{{ ds }}"
-
-# dependencies:
-#   - other-job-name

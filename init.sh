@@ -9,9 +9,9 @@ if [[ $(docker version --format "{{.Server.KernelVersion}}") == *-moby ]]; then
   echo "=== installing pyyaml..."
 
   if hash pip 2>/dev/null; then
-      pip install pyyaml
+      pip install poyo
   elif hash pip3 2>/dev/null; then
-      pip3 install pyyaml
+      pip3 install poyo
   else
       echo "pip not found. Please install Python."
   fi

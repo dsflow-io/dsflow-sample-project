@@ -3,6 +3,3 @@ description: Generate dashboard for previsions_pluie_paris
 class: PlotlyDashApplication
 image: ""  # not implemented
 script: dashboard-previsions_pluie_paris.py
-
-# dependencies:
-#   - create-table-previsions_pluie_paris
