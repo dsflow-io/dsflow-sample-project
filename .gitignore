@@ -103,3 +103,8 @@ ENV/
 .DS_Store
 /datastore/
 /tmp/
+/airflow/logs/
+/airflow/airflow.db
+/airflow/unittests.cfg
+/airflow/airflow-webserver.pid
+*.sqlite
