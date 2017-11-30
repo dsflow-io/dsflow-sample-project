@@ -108,3 +108,4 @@ ENV/
 /airflow/unittests.cfg
 /airflow/airflow-webserver.pid
 *.sqlite
+/airflow/airflow.db-journal

@@ -173,6 +173,38 @@ Configuration of Jupyter and Spark is under `$DSFLOW_WORKSPACE/config`
 ```
 
 
-## Next release of dsflow
+## Pipeline creation and scheduling with airflow
 
-We'll add CLI commands to help generate and manage Airflow DAGs: this will bring full support for complex pipelines.
+Add you airflow DAGs to `airflow/dags/`
+
+You can run dsflow jobs using Airflow using a BashOperator. For instance:
+
+```py
+
+def dsflow_job_operator(job_name):
+    return BashOperator(
+        task_id=job_name,
+        bash_command="python $DSFLOW_ROOT/dsflow-run.py {{ params.job_name }} {{ ds }}",
+        params={'job_name': job_name},
+        dag=dag)
+
+
+t1 = dsflow_job_operator("download-meteoparis")
+t2 = dsflow_job_operator("create-table-meteoparis")
+t3 = dsflow_job_operator("create-table-meteo_agg")
+
+t1 >> t2 >> t3
+```
+
+Open the Airflow web UI with `dsflow start-airflow`.
+Airflow URL is http://localhost:8081
+
+Use the toggle to activate your DAG. If its `start_date` is yesterday or sooner,
+then Airflow will start running the job.
+
+
+
+## Next dsflow release
+
+We will add a `dsflow generate-dag` command to assist you
+in the creation of new pipelines from existing jobs.
