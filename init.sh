@@ -5,16 +5,8 @@ if [[ $(docker version --format "{{.Server.KernelVersion}}") == *-moby ]]; then
   export DSFLOW_WORKSPACE=$(pwd)
   export DSFLOW_ROOT=$(pwd)/../dsflow/dsflow
 
-  # install python libraries
-  echo "=== installing pyyaml..."
-
-  if hash pip 2>/dev/null; then
-      pip install poyo
-  elif hash pip3 2>/dev/null; then
-      pip3 install poyo
-  else
-      echo "pip not found. Please install Python."
-  fi
+  # remove ../ or ./
+  export DSFLOW_ROOT="$(echo $DSFLOW_ROOT | sed -e 's|/\./|/|g' -e ':a' -e 's|/[^/]*/\.\./|/|' -e 't a' -e 's|^[^/]*/\.\./|../|')"
 
   # create docker network
   echo ""
