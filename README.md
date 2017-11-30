@@ -39,7 +39,7 @@ Run the jobs in order:
 dsflow run download-meteoparis 2017-11-24
 dsflow run create-table-meteoparis 2017-11-24
 dsflow run create-table-meteo_agg 2017-11-24
-dsflow run dashboard-previsions_pluie_paris 2017-11-24
+dsflow run dashboard-previsions_pluie_paris
 
 ```
 
