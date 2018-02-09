@@ -1,0 +1,11 @@
+version: '0.1'
+description: Create table camera_agg
+class: JupyterNotebook
+script: create-table-camera_agg.ipynb
+
+job_parameters:
+  - ds
+
+task_specs:
+  sink_path: "/data/tables/camera_agg/ds={{ ds }}"
+  ds: "{{ ds }}"

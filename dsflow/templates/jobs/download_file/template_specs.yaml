@@ -1,0 +1,11 @@
+version: '0.1'
+
+job_name_prefix: download
+
+template_parameters:
+  - name: source_url
+    type: prompt
+    text: Please provide the source url
+  - name: unzip
+    type: confirm
+    text: "Is this a zipped (.zip) file?"

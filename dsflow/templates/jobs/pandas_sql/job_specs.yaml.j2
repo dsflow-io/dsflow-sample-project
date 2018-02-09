@@ -1,0 +1,11 @@
+version: '0.1'
+description: Create table {{ dataset_name }}
+class: JupyterNotebook
+script: {{ job_name }}.ipynb
+
+job_parameters:
+  - ds
+
+task_specs:
+  sink_path: "/data/tables/{{ dataset_name }}/ds={% raw %}{{ ds }}{% endraw %}"
+  ds: "{% raw %}{{ ds }}{% endraw %}"

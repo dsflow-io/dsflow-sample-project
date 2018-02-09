@@ -1,0 +1,13 @@
+version: '0.1'
+description: Create table car_speed_limits
+class: JupyterNotebook
+image: dsflow/pyspark:2.2  # not implemented
+script: table-car_speed_limits.ipynb
+
+job_parameters:
+  - ds
+
+task_specs:
+  source_path: "/data/raw/car_speed_limits/ds={{ ds }}"
+  sink_path: "/data/tables/car_speed_limits/ds={{ ds }}"
+  ds: "{{ ds }}"

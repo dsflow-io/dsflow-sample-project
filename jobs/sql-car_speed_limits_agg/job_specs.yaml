@@ -1,0 +1,11 @@
+version: '0.1'
+description: Create table car_speed_limits_agg
+class: JupyterNotebook
+script: sql-car_speed_limits_agg.ipynb
+
+job_parameters:
+  - ds
+
+task_specs:
+  sink_path: "/data/tables/car_speed_limits_agg/ds={{ ds }}"
+  ds: "{{ ds }}"

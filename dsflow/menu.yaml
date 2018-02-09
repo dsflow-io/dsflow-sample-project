@@ -1,0 +1,17 @@
+# specifications for `dsflow menu`
+build-images:
+  short_description: Build or rebuild Docker images
+compose:
+  short_description: Run docker-compose with default setting.
+generate-job:
+  short_description: Generate a job based on a template.
+menu:
+  short_description: Show this menu
+run:
+  short_description: Run a job.
+start-jupyter:
+  short_description: Start Jupyter container
+stop-all:
+  short_description: Stop all containers
+transform-notebook:
+  short_description: Transform a Jupyter notebook into a Python script

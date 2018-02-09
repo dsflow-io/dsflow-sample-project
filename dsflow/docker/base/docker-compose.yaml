@@ -1,0 +1,35 @@
+version: '3.3'
+services:
+  pyspark:
+    networks:
+      - dsflow
+    build:
+      context: ..
+      dockerfile: ./base/Dockerfile
+    image: dsflow/base-conda
+    hostname: spark-master
+    environment:
+      SPARK_CONF_DIR: /home/jovyan/.spark-conf
+      JUPYTER_CONFIG_DIR: /home/jovyan/.jupyter
+      JUPYTER_DATA_DIR: /home/jovyan/.local/share/jupyter
+    ports:
+      - 4040:4040
+      - 8998:8998
+      - 8888:8888
+    expose:
+      - 8998
+    volumes:
+      - $DSFLOW_WORKSPACE/datastore:/data
+      - $DSFLOW_WORKSPACE/jobs:/home/jovyan/jobs
+      - $DSFLOW_WORKSPACE/adhoc:/home/jovyan/adhoc
+      - $DSFLOW_WORKSPACE/adhoc:/adhoc
+      - $DSFLOW_WORKSPACE/datastore:/home/jovyan/datastore
+      - $DSFLOW_WORKSPACE/dsflow/config/ipython-conf:/home/jovyan/.ipython
+      - $DSFLOW_WORKSPACE/dsflow/config/jupyter-conf:/home/jovyan/.jupyter
+      - $DSFLOW_WORKSPACE/tmp/jupyter:/home/jovyan/.local/share/jupyter
+      - $DSFLOW_ROOT/python_scripts:/python_scripts
+
+
+networks:
+  dsflow:
+    external: true

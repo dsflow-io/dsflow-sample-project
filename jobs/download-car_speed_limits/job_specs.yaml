@@ -1,0 +1,13 @@
+version: '0.1'
+description: Download file car_speed_limits
+class: CommandLineTool
+image: ""  # not implemented
+script: download-car_speed_limits.sh
+
+job_parameters:
+  - ds
+
+task_specs:
+  source_path: "https://raw.github.com/vincentarelbundock/Rdatasets/master/csv/boot/amis.csv"
+  sink_path: "/data/raw/car_speed_limits/ds={{ ds }}"
+  ds: "{{ ds }}"
