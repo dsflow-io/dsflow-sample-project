@@ -4,8 +4,6 @@ v-0.3.2-sandbox-pandas
 
 This is a fork of the dsflow sandbox, adapted for Python and Pandas.
 
-![dsflow logo](docs/src/dsflow-logo.png?raw=true "dsflow")
-
 _IMPORTANT: This framework is not meant to be deployed to production systems._
 
 
